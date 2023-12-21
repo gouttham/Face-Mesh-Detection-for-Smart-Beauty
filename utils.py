@@ -106,8 +106,12 @@ class circles:
 def display_settings(circle_list,frame):
     radius = 7
     for ech_circle in circle_list:
-        thickness = -1 if ech_circle.status else 2
-        cv2.circle(frame, ech_circle.centre, radius, (0, 0, 0), thickness)
+        cv2.circle(frame, ech_circle.centre, radius, (0, 0, 0), 2)
+
+        if ech_circle.status:
+            cv2.circle(frame, ech_circle.centre, 5, (0, 255, 0), -1)
+
+
 
         w,h = ech_circle.centre
         w = w+radius
