@@ -11,14 +11,23 @@ EYES = 'Eyes'
 EYE_BROWS = 'Eyebrows'
 LIPS = 'Lips'
 OUTLINE = 'Outline'
+SKETCH = 'Sketch'
+RECORD = 'Record'
+
+def get_settings_dict(settings):
+    set_dict = {}
+    for ech_setting in settings:
+        set_dict[ech_setting.name] = ech_setting.status
+    return set_dict
 
 def draw_landmarks_on_image(rgb_image, detection_result,settings):
     face_landmarks_list = detection_result.face_landmarks
     annotated_image = np.copy(rgb_image)
 
-    set_dict = {}
-    for ech_setting in settings:
-        set_dict[ech_setting.name] = ech_setting.status
+    set_dict = get_settings_dict(settings)
+    # set_dict = {}
+    # for ech_setting in settings:
+    #     set_dict[ech_setting.name] = ech_setting.status
 
     # Loop through the detected faces to visualize.
     for idx in range(len(face_landmarks_list)):
@@ -95,30 +104,32 @@ def distanceCalculate(p1, p2):
     return dis
 
 class circles:
-    def __init__(self,name,centre):
+    def __init__(self,name,centre,status):
         self.name = name
         self.centre = centre
-        self.status = True
+        self.status = status
     def toggle_status(self):
         self.status = not self.status
 
 
-def display_settings(circle_list,frame):
+def display_settings(circle_list,frame,invert=False):
     radius = 7
+
+    clr = (0,0,0) if not invert else (255,255,255)
     for ech_circle in circle_list:
-        cv2.circle(frame, ech_circle.centre, radius, (0, 0, 0), 2)
+        cv2.circle(frame, ech_circle.centre, radius, clr, 2)
 
         if ech_circle.status:
-            cv2.circle(frame, ech_circle.centre, 5, (0, 255, 0), -1)
-
-
-
+            if ech_circle.name == RECORD:
+                cv2.circle(frame, ech_circle.centre, 5, (255, 0, 0), -1)
+            else:
+                cv2.circle(frame, ech_circle.centre, 5, (0, 255, 0), -1)
         w,h = ech_circle.centre
         w = w+radius
         h = h+radius
-        cv2.putText(frame, " "+ech_circle.name, (w,h),cv2.FONT_HERSHEY_SIMPLEX ,0.75,(0,0,0),2)
+        cv2.putText(frame, " "+ech_circle.name, (w,h),cv2.FONT_HERSHEY_SIMPLEX ,0.75,clr,2)
 
-    cv2.putText(frame, "Press q to exit" , (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 0), 2)
+    cv2.putText(frame, "Press q to exit" , (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, clr, 2)
 
     return frame
 
@@ -127,12 +138,14 @@ def init_settings(w, h):
     init_height = int(h / 10)
     space = 30
     settings = [
-        circles(MESH, (init_width, init_height)),
-        circles(IRIS, (init_width, init_height + space)),
-        circles(EYES, (init_width, init_height + space * 2)),
-        circles(EYE_BROWS, (init_width, init_height + space * 3)),
-        circles(LIPS, (init_width, init_height + space * 4)),
-        circles(OUTLINE, (init_width, init_height + space * 5)),
+        circles(MESH, (init_width, init_height),True),
+        circles(IRIS, (init_width, init_height + space),True),
+        circles(EYES, (init_width, init_height + space * 2),True),
+        circles(EYE_BROWS, (init_width, init_height + space * 3),True),
+        circles(LIPS, (init_width, init_height + space * 4),True),
+        circles(OUTLINE, (init_width, init_height + space * 5),True),
+        circles(SKETCH, (init_width, init_height + space * 6),False),
+        circles(RECORD, (init_width, init_height + space * 7),False),
+
     ]
     return settings
-
