@@ -39,4 +39,4 @@ python run.py
 6 | Outline  | Enable/Disable Face Contour
 7 | Iris_dist | Enable/Disable the distance between the Iris
 8 | Sketch   | Enable/Disable the video feed
-9. | Record   | Records the video and the output is stored in `./videos/*.mp4`
+9 | Record   | Records the video and the output is stored in `./videos/*.mp4`
