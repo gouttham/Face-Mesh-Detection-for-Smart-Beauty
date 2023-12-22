@@ -29,8 +29,8 @@ python run.py
 
 ## Settings
 
- S.no     | Name                                                           | Description
-----------|----------------------------------------------------------------|-----------
+ S.no     | Name  | Description
+----------|-------|-----------
 1. | Mesh     | Enable/Disable Mesh                                            
 2. | Iris     | Enable/Disable Iris                                            
 3. | Eyes     | Enable/Disable Eyes                                            
