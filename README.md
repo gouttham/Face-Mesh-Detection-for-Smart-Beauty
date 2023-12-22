@@ -29,14 +29,14 @@ python run.py
 
 ## Settings
 
- S.no     | Name  | Description
-----------|-------|-----------
-1. | Mesh     | Enable/Disable Mesh                                            
-2. | Iris     | Enable/Disable Iris                                            
-3. | Eyes     | Enable/Disable Eyes                                            
-4. | Eyebrows | Enable/Disable Eyebrows                                        
-5. | Lips     | Enable/Disable Lips                                            
-6. | Outline  | Enable/Disable Face Contour                                    
-7. | Iris_dist | Enable/Disable the distance between the Iris                   
-8. | Sketch   | Enable/Disable the video feed                                  
-9. | Record   | Records the video and the output is stored in `./videos/*.mp4` 
+ S.no     | Name  | Description                                                     |
+----------|-------|-----------------------------------------------------------------|
+1. | Mesh     | Enable/Disable Mesh                                             |                                            
+2. | Iris     | Enable/Disable Iris                                             |                                             
+3. | Eyes     | Enable/Disable Eyes                                             |                                            
+4. | Eyebrows | Enable/Disable Eyebrows                                         |                                        
+5. | Lips     | Enable/Disable Lips                                             |                                            
+6. | Outline  | Enable/Disable Face Contour                                     |                                    
+7. | Iris_dist | Enable/Disable the distance between the Iris                    |                   
+8. | Sketch   | Enable/Disable the video feed                                   |                   
+9. | Record   | Records the video and the output is stored in `./videos/*.mp4`  | 
