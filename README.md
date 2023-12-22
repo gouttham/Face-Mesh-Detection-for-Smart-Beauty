@@ -31,7 +31,7 @@ python run.py
 
  S.no | Name | Description
 --- | --- | ---
-1. | Mesh     | EnableDisable Mesh
+1 | Mesh     | EnableDisable Mesh
 2. | Iris     | Enable/Disable Iris
 3. | Eyes     | Enable/Disable Eyes
 4. | Eyebrows | Enable/Disable Eyebrows
