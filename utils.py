@@ -50,7 +50,7 @@ def get_coods(connections,idx_to_coordinates):
             pts = idx_to_coordinates[start_idx]
             iris_coords.append(pts)
     return iris_coords
-def blink_detection(rgb_image, detection_result):
+def irisDist(rgb_image, detection_result):
     try:
         face_landmarks_list = detection_result.face_landmarks
         image_rows, image_cols, _ = rgb_image.shape

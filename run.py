@@ -51,7 +51,7 @@ try:
             annotated_image = utils.draw_landmarks_on_image(mp_image.numpy_view(), detection_result, settings)
             utils.display_settings(settings, annotated_image)
         if set_dict[utils.IRIS_D]:
-            annotated_image = utils.blink_detection(annotated_image,detection_result)
+            annotated_image = utils.irisDist(annotated_image,detection_result)
 
         frame = cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR)
 

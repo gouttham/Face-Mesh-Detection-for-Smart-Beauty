@@ -2,7 +2,7 @@
 
 <div align="center">
 <p>
-<img src=".gif" width="400" height="400"/>
+<img src="./readme_stuffs/demo.gif" width="600" height="400"/>
 </p>
 <br>
 </div>
